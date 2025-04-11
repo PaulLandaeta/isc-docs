@@ -43,7 +43,7 @@ Puedes descargar el archivo Excel que contiene:
 Este archivo contiene:
 
 ### 1. **Hoja: `Tabla SP → Recompensas`**
-Contiene la tabla interpolada desde **0.5 hasta 10 Story Points** (SP), donde cada SP otorga una cantidad proporcional de diamantes y monedas.
+Contiene la tabla interpolada desde **0.5 hasta 8 Story Points** (SP), donde cada SP otorga una cantidad proporcional de diamantes y monedas.
 
 | Story Points | Diamantes | Monedas |
 |--------------|-----------|---------|
