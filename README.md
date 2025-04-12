@@ -15,7 +15,7 @@ Colección de guías específicas sobre prácticas técnicas empleadas en el pro
 - **backend**: Guías de desarrollo del lado del servidor y lógica del negocio.
 - **convenciones-de-código**: Normas y estándares para mantener la calidad del código.
 - **devops**: Procesos de integración y entrega continua, despliegue y mantenimiento.
-- **frontend**: Desarrollo de la interfaz de usuario y experiencia del usuario.
+- **frontend**: Desarrollo de la interfaz de usuario y experiencia del usuario, documentación de frameworks.
 - **git-workflow-pr**: Flujo de trabajo en Git y manejo de Pull Requests.
 - **qa**: Pruebas de calidad y aseguramiento del software.
 - **us-y-tasks**: Definición y gestión de historias de usuario y tareas técnicas.
