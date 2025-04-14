@@ -1,5 +1,5 @@
 
-# Manual de Proceso: Pull Request en VS Code
+# Manual de Proceso de un Pull Request (PR)
 
 Este documento tiene como objetivo describir el proceso paso a paso para contribuir a un repositorio remoto en GitHub mediante la creación de una Pull Request (PR). Se detallan las acciones desde la creación de una rama hasta la fusión (merge) de los cambios al repositorio principal, siguiendo buenas prácticas de colaboración y control de versiones.
 
