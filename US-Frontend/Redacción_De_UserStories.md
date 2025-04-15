@@ -104,11 +104,11 @@ Como usuario registrado, quiero poder editar mi perfil desde el menú principal,
 
 ---
 
-## 7. Validación de la Plantilla
+## 7. Acciones planificadas para la validación de la plantilla 
 
-- Validada en conjunto con el equipo de Frontend y Product Owners.
-- Se realizaron pruebas con historias reales.
-- Feedback incorporado para asegurar comprensión transversal.
+- Validación pendiente con equipo de Frontend y Product Owners.
+- Se planifica realizar pruebas con historias reales del backlog 
+- Feedback recopilado será incorporado para asegurar claridad.
 
 ---
 ## 8. Referencias
