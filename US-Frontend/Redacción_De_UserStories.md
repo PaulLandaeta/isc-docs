@@ -4,7 +4,6 @@
 
 Establecer una la redacción de User Stories enfocadas en el desarrollo de interfaces y experiencia de usuario, asegurando claridad, coherencia y alineación con las mejores prácticas ágiles (Scrum, Kanban, XP).
 
----
 
 ## 2. Revisión del Formato Actual
 
@@ -16,7 +15,6 @@ Establecer una la redacción de User Stories enfocadas en el desarrollo de inter
   - Algunas historias no especificaban el comportamiento esperado.
   - Pocas referencias a usabilidad o accesibilidad.
   - Ausencia de detalles técnicos como compatibilidad con navegadores o dispositivos.
----
 
 ## 3. Buenas Prácticas en Metodologías Ágiles
 Frameworks ágiles:
@@ -24,8 +22,6 @@ Frameworks ágiles:
 - **Scrum**: Foco en historias centradas en el valor para el usuario.
 - **Kanban**: Claridad en los criterios de aceptación y condiciones de entrega.
 - **Extreme Programming (XP)**: Detalles sobre la interacción del usuario y pruebas funcionales.
-
----
 
 ## 4. Elementos Clave en User Stories de Frontend
 
@@ -38,8 +34,6 @@ Una User Story de Frontend bien definida debe incluir:
 - **Accesibilidad y usabilidad**.
 - **Requisitos de diseño** (Tipografías, paleta de colores, componentes UI).
 - **Restricciones técnicas** (dispositivos, navegadores, frameworks).
-
----
 
 ## 5. Plantilla Estandarizada
 
@@ -61,8 +55,6 @@ Dado/Given [contexto inicial o estado del sistema], Cuando/When [acción que rea
 - Dispositivos soportados (Mobile, Tablet, Desktop)
 - Framework o librería frontend utilizada (React, Angular, etc.)
 - Estándares de accesibilidad (WCAG 2.1, ARIA)
-
----
 
 ## 6. Ejemplos
 
@@ -88,8 +80,6 @@ Como usuario registrado, quiero poder editar mi perfil desde el menú principal,
 - Soporte para pantallas de 360px en adelante.
 - El formulario debe cumplir con estándares WCAG AA.
 
----
-
 ### ❌ Ejemplo Mal Estructurado
 
 **User Story:**
@@ -104,16 +94,30 @@ Como usuario registrado, quiero poder editar mi perfil desde el menú principal,
 
 ---
 
-## 7. Acciones planificadas para la validación de la plantilla 
+# 🧾 User Story – Título Genérico
 
-- Validación pendiente con equipo de Frontend y Product Owners.
-- Se planifica realizar pruebas con historias reales del backlog 
-- Feedback recopilado será incorporado para asegurar claridad.
+## 📌 Buenas prácticas 
 
----
-## 8. Referencias
+- Usamos el formato: **Como [rol], quiero [algo], para [obtener tal beneficio]**.
+- Los criterios de aceptación van con el estilo **Given / When / Then** para que sea fácil de entender.
+- Agregamos información técnica y de diseño que no se puede pasar por alto.
 
-- [Scrum Guide ](https://scrumguides.org)
-- [Atlassian: How to write user stories](https://www.atlassian.com/agile/project-management/user-stories)
-- [Agile Alliance – User Stories](https://www.agilealliance.org/agile101/user-stories/)
+## 📄 Descripción
+
+**Como** [rol o tipo de usuario],  
+**Quiero** [hacer algo],  
+**Para** [conseguir un resultado o beneficio].
+
+La idea es que la experiencia del usuario sea clara y fluida, con mensajes útiles y una interacción que tenga sentido. Que se vea bien, funcione bien y se entienda.
+
+## Objetivos y métricas
+
+| Objetivos                                 | Metricas                                                        |
+|-------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Que todo funcione como se espera                      | ✅ La acción se completa sin errores cuando los datos están bien ingresados.           |
+| Que valide datos y avise si algo falta o está mal     | ✅ Muestra mensajes claros cuando algo está incompleto o mal escrito.                 |
+| Que avise cuando algo sale bien o mal                 | ✅ Aparece un mensaje de error (toast, modal, etc.) explicando.                        |
+| Que redirija o actualice lo que tenga que actualizar  | ✅ Cambia el estado o lleva a la vista que corresponde.         |
+| Que sea fácil de usar y accesible                     | ✅ Se puede usar con teclado, tiene etiquetas claras y respeta estándares de accesibilidad. |
+
 ---
