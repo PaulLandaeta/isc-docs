@@ -20,12 +20,12 @@ Este documento tiene como objetivo describir el proceso paso a paso para contrib
 
 #### 🔧 Desde la Interfaz Web
 
-- Ir al repositorio original.
-- Click en `Fork` en la esquina superior derecha.
+1. Ve al repositorio original en GitHub (`isc-docs`).
+2. Haz clic en el botón `Fork` ubicado en la parte superior derecha de la página.
 
 ![fork1](/gitWorkflow-PRs/Flujo_de_PR/images/fork1.png)
 
-- Elegir tu cuenta para crear el fork.
+3. Selecciona tu cuenta personal para crear una copia del repositorio en tu espacio.
 
 ![fork2](/gitWorkflow-PRs/Flujo_de_PR/images/fork2.png)
 
@@ -37,16 +37,18 @@ cd isc-docs
 git remote add upstream https://github.com/PaulLandaeta/isc-docs.git
 ```
 
-- `git clone`: clona el repositorio original a tu máquina local.
-- `cd isc-docs`: accede al directorio del repositorio clonado.
-- `git remote add upstream`: agrega una referencia al repositorio original (de Paul) para poder sincronizarlo en el futuro.
+- `git clone`: clona tu *fork* (no el original) en tu máquina local.
+- `cd isc-docs`: navega al directorio del proyecto.
+- `git remote add upstream`: añade una referencia al repositorio original para poder sincronizar tu fork con los últimos cambios del autor principal.
+
+Actualizar tu fork con la última versión del repositorio base:
 
 ```bash
 git fetch upstream
 git merge upstream/main
 ```
 
-Estas líneas te permitirán mantener actualizado tu fork con los últimos cambios del repositorio principal.
+Esto asegura que estás trabajando sobre la versión más reciente y evita conflictos más adelante.
 
 ---
 
@@ -56,8 +58,8 @@ Estas líneas te permitirán mantener actualizado tu fork con los últimos cambi
 git checkout -b feat/writer/#235-Documentation-of-the-Pr-process
 ```
 
-- `git checkout -b` crea una nueva rama llamada `feat/writer/#235-Documentation-of-the-Pr-process` y te cambia automáticamente a esa rama.
-- Se utiliza para desarrollar una nueva funcionalidad de forma aislada.
+- Este comando **crea una nueva rama** (con un nombre descriptivo) y cambia automáticamente a ella.
+- Las ramas permiten trabajar en funcionalidades específicas sin afectar el código de la rama principal (`main` o `develop`).
 
 📘 **Convención de nombre:**  
 `feat/writer/#235-Documentation-of-the-Pr-process`, `fix/navbar`, etc.  
@@ -67,8 +69,11 @@ Ver más en [Convenciones de Commits](/gitWorkflow-PRs/ConvecionCommits/Convenci
 
 ### 3. Agregar el Contenido
 
-- Realiza los cambios necesarios en los archivos correspondientes.
-- Asegúrate de probar el funcionamiento antes de hacer commit.
+- Abre el proyecto en tu editor de código (como VS Code).
+- Realiza las modificaciones necesarias: pueden ser correcciones, nuevas funciones o documentación.
+- Guarda los cambios frecuentemente y asegúrate de que el código funcione correctamente si estás trabajando con funcionalidades.
+
+🧪 Si es código funcional, **haz pruebas locales** para validar que no rompes nada.
 
 ---
 
@@ -79,16 +84,15 @@ git commit -m "(docs(#235): Documentation-of-the-PR-process)"
 ```
 
 - `git add .`: agrega todos los archivos modificados al área de preparación.
-- `git commit -m`: registra los cambios con un mensaje estructurado.
+- `git commit -m`: guarda esos cambios en tu historial local de Git con un mensaje estructurado.
 
 ![commit1](/gitWorkflow-PRs/Flujo_de_PR/images/commit1.png)
 
-📌 El mensaje debe seguir esta convención:
+✍️ El mensaje debe ser claro y cumplir el formato acordado para facilitar la revisión:
 
-- Tipo: `docs`, `feat`, `fix`, etc.
-- Número de tarea: `(#235)`
-- Descripción clara y sin punto final
-
+- Tipo (`docs`, `feat`, `fix`)
+- Número de issue (si aplica): `#235`
+- Descripción breve y sin punto final
 
 ---
 
@@ -96,26 +100,29 @@ git commit -m "(docs(#235): Documentation-of-the-PR-process)"
 ```bash
 git push origin feat/writer/#235-Documentation-of-the-Pr-process
 ```
-
+- Este comando sube tu rama con los cambios al repositorio remoto en GitHub.
 - `git push`: sube los commits a GitHub.
 - `origin`: el repositorio remoto (tu fork).
 - `feat/writer/#235-Documentation-of-the-Pr-process`: la rama que has creado.
 
 ![push](/gitWorkflow-PRs/Flujo_de_PR/images/push1.png)
 
-Se utiliza este comando para aislar una nueva funcionalidad (en este caso, el login del usuario) y mantener el código organizado.
+Se utiliza este comando para aislar una nueva funcionalidad y mantener el código organizado.
 
 ---
 
 ### 6. Crear el Pull Request (PR)
-
-- Ir a tu fork en GitHub y hacer click en "Compare & Pull Request".
+1. Ve a tu repositorio en GitHub.
+2. Ir a tu fork en GitHub y hacer click en "Compare & Pull Request".
 
 ![pr1](/gitWorkflow-PRs/Flujo_de_PR/images/PR.png)
 
 
-- Asegúrate de que la rama base sea `main` o `develop`, y la comparada tu rama `feat/`.
-- Escribe un título y descripción clara.
+3. Verifica que:
+   - La rama base sea `main` o `develop` (según el flujo de trabajo).
+   - La rama de comparación sea tu rama (`feat/...`).
+
+✍️ Escribe un **título claro** y una **descripción detallada**:
 
 
 📝 **Ejemplo de Título:**  
@@ -132,13 +139,18 @@ Se utiliza este comando para aislar una nueva funcionalidad (en este caso, el lo
 ---
 ### 7. Revisión y Merge del PR
 
-- **✅ Revisión final**
+Espera la revisión por parte de otros colaboradores. Ellos pueden:
+  - Dejar comentarios
+  - Solicitar cambios
+  - Aprobar el PR
 
-Verifica que todos los cambios estén correctamente revisados y aprobados por al menos un revisor.
 
-- **🔀 Realizar el merge**
+🔀 Una vez aprobado:
 
-Desde la interfaz de GitHub para integrar los cambios en la rama principal (develop o main según el flujo).
+1. Haz clic en `Merge Pull Request` para fusionar los cambios en `main` o `develop`.
+2. Asegúrate de que no haya conflictos antes de hacerlo.
+
+Desde la terminal (opcional):
 
 ```bash
 git checkout develop
@@ -147,18 +159,15 @@ git merge nombre-de-la-rama
 git push origin develop
 ```
 
-- **🧹 Limpieza**
+### 8. Limpieza de Ramas
 
-Una vez realizado el merge, elimina la rama si ya no se necesita para mantener el repositorio limpio.
+Una vez que tu PR ha sido fusionado, es buena práctica **eliminar la rama** para mantener el repositorio ordenado.
 
-**Eliminar la rama localmente:**
 ```bash
-git branch -d nombre-de-la-rama
+git branch -d nombre-de-la-rama             # elimina la rama local
+git push origin --delete nombre-de-la-rama  # elimina la rama en GitHub
 ```
-**Eliminar la rama en el repositorio remoto (GitHub):**
-```bash
-git push origin --delete nombre-de-la-rama
-```
+
 ---
 ## ✅ Buenas Prácticas (Resumen)
 
