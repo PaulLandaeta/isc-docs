@@ -23,7 +23,7 @@ Este documento tiene como objetivo describir el proceso paso a paso para contrib
 1. Ve al repositorio original en GitHub (`isc-docs`).
 2. Haz clic en el botón `Fork` ubicado en la parte superior derecha de la página.
 
-![fork1](/gitWorkflow-PRs/Flujo_de_PR/images/fork1.png)
+![fork1](https://raw.githubusercontent.com/S3bas77/isc-docs/feat/writer/#235-Documentation-of-the-PR-process//gitWorkflow-PRs/Flujo_de_PR/images/fork1.png)
 
 3. Selecciona tu cuenta personal para crear una copia del repositorio en tu espacio.
 
@@ -105,7 +105,7 @@ git push origin feat/writer/#235-Documentation-of-the-Pr-process
 - `origin`: el repositorio remoto (tu fork).
 - `feat/writer/#235-Documentation-of-the-Pr-process`: la rama que has creado.
 
-![push](/gitWorkflow-PRs/Flujo_de_PR/images/push1.png)
+![push1](/gitWorkflow-PRs/Flujo_de_PR/images/push1.png)
 
 Se utiliza este comando para aislar una nueva funcionalidad y mantener el código organizado.
 
