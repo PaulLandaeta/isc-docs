@@ -147,7 +147,110 @@ El versionado evita pérdida de trabajo y permite mantener trazabilidad.
 - `Ecommerce API v1.0`
 - `Ecommerce API v1.1 - With Discounts`
 
-## 6. Referencias
+
+## 6. Ejemplos
+
+## 📌 Ejemplo 1: Crear un nuevo usuario
+
+**Método:** `POST`  
+**Endpoint:** `/api/users`
+
+**Descripción:**  
+Crea un nuevo usuario en la base de datos. Requiere que se proporcionen los datos del usuario y los roles que se le asignarán.
+
+### 🔸 Parámetros en el cuerpo (Body):
+```json
+{
+  "username": "jdoe",
+  "email": "jdoe@example.com",
+  "password": "SecurePass123!",
+  "roles": [1, 2]
+}
+
+```
+
+username: Nombre de usuario único.
+
+email: Correo electrónico válido y único.
+
+password: Contraseña segura que será hasheada.
+
+roles: Array de IDs de roles existentes.
+##  Respuestas esperadas:
+201 Created: Usuario creado exitosamente.
+
+400 Bad Request: Datos inválidos o faltantes.
+
+409 Conflict: El username o email ya existen.
+
+404 Not Found: Uno de los roles no existe.
+
+500 Internal Server Error: Error interno al crear el usuario.
+
+
+## 📌 Ejemplo 2: Obtener detalles de un usuario
+
+**Método:** `GET`  
+**Endpoint:** `/api/users/:id`
+
+**Descripción:**  
+Recupera la información detallada de un usuario específico, incluyendo su perfil y roles asignados.
+
+### 🔸 Parámetro en la URL:
+- `id`: ID del usuario a consultar.
+
+**Ejemplo de solicitud:**  
+`GET /api/users/123`
+
+### 🔸 Respuestas esperadas:
+- `200 OK`: Información del usuario retornada exitosamente.  
+- `404 Not Found`: El usuario con el ID especificado no existe.  
+- `500 Internal Server Error`: Error interno al recuperar la información.
+
+
+## 📌 Ejemplo 3: Actualizar roles de un usuario
+
+**Método:** `PUT`  
+**Endpoint:** `/api/users/:id/roles`
+
+**Descripción:**  
+Actualiza los roles asignados a un usuario específico.
+
+### 🔸 Parámetro en la URL:
+- `id`: ID del usuario a modificar.
+
+### 🔸 Parámetros en el cuerpo (Body):
+```json
+{
+  "roles": [2, 3]
+}
+```
+- roles: Array de IDs de roles existentes que se asignarán.
+##  Respuestas esperadas:
+200 OK: Roles del usuario actualizados exitosamente.
+
+400 Bad Request: Datos inválidos o faltantes.
+
+404 Not Found: El usuario o alguno de los roles no existe.
+
+500 Internal Server Error: Error interno al actualizar los roles del usuario.
+
+## 7.  Manejo completo de códigos de respuesta HTTP
+
+| Código | Descripción                                       |
+|--------|---------------------------------------------------|
+| `200`  | OK - Respuesta exitosa con contenido            |
+| `201`  | Created - Recurso creado exitosamente           |
+| `204`  | No Content - Operación exitosa sin contenido    |
+| `400`  | Bad Request - Parámetros inválidos              |
+| `401`  | Unauthorized - Token ausente o inválido         |
+| `403`  | Forbidden - El usuario no tiene permisos        |
+| `404`  | Not Found - El recurso solicitado no existe     |
+| `409`  | Conflict - Duplicación de datos                 |
+| `422`  |  Unprocessable Entity - Validaciones fallidas    |
+| `500`  |  Internal Server Error                          |
+
+## 8. Referencias
 
 - [Postman: Colecciones, Environments y Documentación (Medium)](https://medium.com/zurvin/postman-colecciones-environments-y-documentaci%C3%B3n-a86ac96c78bb)
 - [Integración y APIs (EGA Futura)](https://discover.egafutura.com/tag/integracion-y-apis/)
