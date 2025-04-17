@@ -12,7 +12,7 @@ Este documento describe detalladamente el funcionamiento del **Módulo Docente**
 
 Para comenzar, es necesario iniciar sesión en el sistema. Una vez dentro, desde la pantalla principal, se puede acceder al módulo de gestión de docentes haciendo clic en la opción correspondiente del menú desplegado a la derecha de la pantalla.
 
-![alt text](pantalla-inicial.png)
+![alt text](documentacion-de-pagina/creacion-de-docente/pantalla-inicial.png)
 *Figura 1: Página principal con el menú de opciones al lado derecho.*
 
 ---
@@ -28,7 +28,7 @@ Al hacer clic en el botón **“Agregar Docente”**, se despliega un formulario
 - **Número de celular**
 - **Curso asignado** (opcional)
 
-![alt text](datos-docente.png)
+![alt text](documentacion-de-pagina/creacion-de-docente/datos-docente.png)
 *Figura 2: Formulario de registro de docente con campos para nombre, apellido, código, correo y celular.*
 
 Cada campo está debidamente identificado con etiquetas claras y, en algunos casos, marcadores de obligatorio.
@@ -41,7 +41,7 @@ Cada campo está debidamente identificado con etiquetas claras y, en algunos cas
 
 Si el usuario intenta continuar sin completar los campos requeridos, el sistema mostrará un mensaje de advertencia resaltando los campos incompletos.
 
-![alt text](datos-erroneos-docente.png)
+![alt text](documentacion-de-pagina/creacion-de-docente/datos-erroneos-docente.png)
 *Figura 3: Mensajes de error en rojo bajo los campos vacíos.*
 
 ---
@@ -53,8 +53,8 @@ El campo **número de celular** está sujeto a una validación especial. El sist
 - Longitud mínima: **8 caracteres numéricos**
 - No se permiten letras ni caracteres especiales
 
-![alt text](numero-invalido.png)
-*Figura 4: Campo de celular con el mensaje de error al introducir caracteres no válidos.*
+![alt text](documentacion-de-pagina/creacion-de-docente/numero-invalido.png)
+*Figura 4: Campo de número de celular con el mensaje de error al introducir caracteres no válidos.*
 
 ---
 
@@ -63,8 +63,8 @@ El campo **número de celular** está sujeto a una validación especial. El sist
 - Si se intenta registrar un docente con un **código que ya existe**, se mostrará un mensaje de advertencia.
 - Lo mismo ocurre si se proporciona un **correo electrónico inválido**.
 
-![alt text](correo-invalido.png)
-*Figura 4: Campo de correo con el mensaje de error al introducir caracteres no válidos.*
+![alt text](documentacion-de-pagina/creacion-de-docente/correo-invalido.png)
+*Figura 4: Campo de correo electrónico con el mensaje de error al introducir caracteres no válidos.*
 
 ---
 
@@ -78,7 +78,7 @@ Una vez que se ingresan todos los datos de forma correcta y se presiona el botó
 2. Registra la información del docente
 3. Muestra una notificación de éxito
 
-    ![alt text](docente-creado.png)
+    ![alt text](documentacion-de-pagina/creacion-de-docente/docente-creado.png)
     *Figura 6: Notificación de creación exitosa del docente.*
 
 4. Actualiza automáticamente la **tabla de docentes** con el nuevo ingreso
@@ -90,8 +90,8 @@ En algunos casos, puede aparecer un mensaje genérico de error con el texto **�
 - Datos inválidos no detectados por el frontend
 - Fallas en la validación del backend
 
-    ![alt text](docente-no-creado.png)
-    *Figura 6: Notificación de error en la creación del docente.*
+    ![alt text](documentacion-de-pagina/creacion-de-docente/docente-no-creado.png)
+    *Figura 7: Notificación de error en la creación del docente.*
 
 Cuando esto sucede, el usuario puede cerrar el mensaje y revisar los campos nuevamente o intentar enviar el formulario más tarde.
 
@@ -108,7 +108,7 @@ Después de agregar al docente, este se visualizará en una tabla dinámica ubic
 - **Curso**
 - **Acciones**
 
-![alt text](encabezado-de-tabla-docente.png)
+![alt text](documentacion-de-pagina/creacion-de-docente/encabezado-de-tabla-docente.png)
 *Figura 8: Tabla de docentes con columnas: Código, Nombre, Correo, Celular, Curso y Acciones.*
 
 ---
@@ -121,7 +121,7 @@ Cada docente listado en la tabla tiene una serie de acciones disponibles, identi
 - 👁️ **Ver perfil**: Muestra todos los datos del docente en una vista completa, útil para consultas detalladas.
 - 🗑️ **Eliminar**: Elimina al docente del sistema previa confirmación. Esta acción es irreversible.
 
-![alt text](acciones-docente.png)
+![alt text](documentacion-de-pagina/creacion-de-docente/acciones-docente.png)
 *Figura 9: Fila mostrando los íconos de acciones: ver perfil (ojo), editar (lápiz) y eliminar (basurero).*
 
 ---
@@ -138,7 +138,7 @@ La interfaz de usuario ha sido diseñada para facilitar la gestión docente, y s
   - 👁️ Ojo para ver el perfil
   - 🗑️ Basurero para eliminar
 
-![alt text](interfaz-docente.png)
+![alt text](documentacion-de-pagina/creacion-de-docente/interfaz-docente.png)
 *Figura 10: Vista completa del módulo docente.*
 
 ---
