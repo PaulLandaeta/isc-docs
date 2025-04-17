@@ -87,7 +87,7 @@ Una buena historia de backend debe incluir:
 
 - 500 → [Descripción del error interno]
 
-## Objetivos y métricas
+## 6. Objetivos y métricas
 | Objetivo                          | Métrica de Cumplimiento                                |
 |----------------------------------|----------------------------------------------------------|
 | Funcionalidad cumple su propósito | ✅ Pasa pruebas esperadas                                |
@@ -119,7 +119,7 @@ Una buena historia de backend debe incluir:
 - Seguridad: autenticación, autorización, expiración de tokens
 
 
-## 6. Ejemplos Prácticos
+## 7. Ejemplos Prácticos
 
 ### ✅ Ejemplo Bien Estructurado
 
@@ -158,7 +158,7 @@ Crear autenticación con tokens.
 - Falta información técnica relevante.
 
 
-## 7. Referencias
+## 8. Referencias
 
 - [Scrum Guide](https://scrumguides.org)
 - [Atlassian: How to write user stories](https://www.atlassian.com/agile/project-management/user-stories)
