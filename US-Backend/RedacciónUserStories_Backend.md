@@ -64,19 +64,20 @@ Una buena historia de backend debe incluir:
 
 - *Endpoint:* METHOD /ruta/del/endpoint  
 - *Formato de request:*  
-  json
+  ```json
   {
     "ejemploCampo": "valor"
   }
-
+  ```
   
 
   ## Formato de respuesta esperada:
-  json
+  ```json
   {
   "status": "success",
   "data": { "ejemploCampo": "valor" }
   }
+  ```
 
   
 
@@ -108,6 +109,9 @@ Una buena historia de backend debe incluir:
   Indicar nombres de tablas o colecciones de base de datos que se impactan
 
 ### Especificaciones Técnicas
+[Son los detalles técnicos que explican cómo debe funcionar la historia de usuario “por detrás” (en el servidor, base de datos, APIs, lógica de negocio). Como los endpoints que se crean o modifican, validaciones necesarias, estructuras de datos, integraciones y reglas que aseguran que el sistema trabaje correctamente.]
+
+[Se aclara que no existe una regla para las especificaciones técnicas, estos son especificaciones de ejemplo dependiendo de la tarea que se requiera]
 
 - API endpoint involucrado (método, URL, parámetros)
 - Formato de datos esperado (JSON, XML, etc.)
