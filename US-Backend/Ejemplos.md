@@ -1,14 +1,14 @@
 
 # Ejemplos de Guía de User Stories de Backend 
 
-# 📝 User Story: Asignar rol a un usuario
+# User Story: Asignar rol a un usuario
 
 ## Descripción  
 **Como** sistema de gestión de usuarios,  
 **Necesito** asignar un rol específico a un usuario existente,  
 **Para** controlar el acceso a funcionalidades según sus permisos asociados.
 
-## ✅ Criterios de Aceptación  
+## Criterios de Aceptación  
 1. **Dado que** un usuario ha sido creado antes,  
    **Cuando** se le asigna un rol que tiene que ser válido mediante el endpoint,  
    **Entonces** el sistema debe registrar la relación en la tabla `user_roles`.
@@ -18,8 +18,8 @@
    **Entonces** el sistema debe responder con un error 400 indicando datos inválidos.
 
 ##  Especificaciones Técnicas  
-- **🔗 Endpoint:** `POST /api/user_roles`  
-- **📄 Formato de request:**  
+- Endpoint: `POST /api/user_roles`  
+- Formato de request:  
 ```json
 {
   "user_id": 12,
@@ -48,14 +48,14 @@
 
 ---
 
-# 📝 User Story: Obtener permisos completos de un usuario
+# User Story: Obtener permisos completos de un usuario
 
 ## Descripción  
 **Como** sistema de autenticación y autorización,  
 **Necesito** recuperar todos los permisos asociados a un usuario,  
 **Para** validar qué funcionalidades puede acceder en la plataforma.
 
-## ✅ Criterios de Aceptación  
+## Criterios de Aceptación  
 1. **Dado que** un usuario está autenticado,  
    **Cuando** solicita sus permisos mediante el endpoint,  
    **Entonces** el sistema debe devolver la lista completa de permisos que le corresponden por cada rol asignado.
@@ -65,8 +65,8 @@
    **Entonces** el sistema debe retornar una lista vacía sin errores.
 
 ##  Especificaciones Técnicas  
-- **🔗 Endpoint:** `GET /api/users/{user_id}/permissions`  
-- **📄 Formato de request:** *(No requiere body, sólo el parámetro en la URL)*
+- Endpoint: `GET /api/users/{user_id}/permissions`  
+- Formato de request: *(No requiere body, sólo el parámetro en la URL)*
 
 ## Formato de respuesta esperada:
 ```json
@@ -96,14 +96,14 @@
 
 
 
-# 📝 User Story: Crear usuario con asignación de roles
+# User Story: Crear usuario con asignación de roles
 
 ## Descripción  
 **Como** sistema de administración,  
 **Necesito** registrar un nuevo usuario con uno o más roles desde el inicio,  
 **Para** que pueda autenticarse y tener acceso a funcionalidades desde su primer login.
 
-## ✅ Criterios de Aceptación  
+## Criterios de Aceptación  
 1. **Dado que** un administrador proporciona los datos completos del nuevo usuario y sus roles,  
    **Cuando** se hace una solicitud al endpoint de creación,  
    **Entonces** el sistema debe guardar el usuario y vincularlo a los roles indicados.
@@ -113,8 +113,8 @@
    **Entonces** el sistema debe rechazar la operación y no guardar ningún dato (transacción revertida).
 
 ## Especificaciones Técnicas  
-- **🔗 Endpoint:** `POST /api/users`  
-- **📄 Formato de request:**  
+- Endpoint: `POST /api/users`  
+- Formato de request:
 ```json
 {
   "username": "dany",
@@ -145,7 +145,7 @@
 - Las contraseñas deben almacenarse de forma segura.
 - Validar previamente que los `role_id` proporcionados existan en la base de datos antes de insertarlos.
 
-## ❌ Manejo de errores
+## Manejo de errores
 
 - **400** → Falta algún campo obligatorio o el campo `roles` no es un array válido.
 - **409** → El `username` o `email` ya existen en el sistema.
