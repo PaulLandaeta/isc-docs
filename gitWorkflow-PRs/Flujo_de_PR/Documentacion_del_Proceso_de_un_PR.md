@@ -124,7 +124,8 @@ git push origin feat/login
 - Ir al repositorio fork en GitHub.
 - Verás una opción para abrir un Pull Request.
 
-📸 *[Agregar aquí imagen de commit en VS Code o terminal]*
+<!-- 📸 *[Agregar aquí imagen de commit en VS Code o terminal]* -->
+![commit](/gitWorkflow-PRs/Flujo_de_PR/images/commit.png)
 
 - Asegúrate de que la rama base sea `main` o `develop` y la comparada sea tu rama `feat/`.
 
@@ -132,7 +133,9 @@ git push origin feat/login
 **Título:** `docs(#Numero): descripción (Formal)`  
 **Descripción:** Qué se hizo, por qué, y cómo probarlo.
 
-📸 *[Agregar imagen creando un PR]*
+<!-- 📸 *[Agregar imagen creando un PR]* -->
+![PR](/gitWorkflow-PRs/Flujo_de_PR/images/PR.png)
+
 
 ---
 
@@ -156,4 +159,4 @@ git push origin feat/login
 - Fusionar `feature` → `develop` y luego a `main` si es estable
 - Eliminar ramas luego del merge
 
-📸 *[Agregar diagrama visual del flujo de Gitflow]*
+
