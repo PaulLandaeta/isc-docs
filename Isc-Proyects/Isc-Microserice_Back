@@ -1,3 +1,14 @@
+#Idea
+Diseñar y mantener un microservicio de autenticación independiente que centralice el acceso seguro de usuarios para toda la plataforma. El servicio opera con una arquitectura en capas (controllers, services, repositories, interactors y dtos), valida credenciales mediante JWT, gestiona sesiones temporales en Redis y persiste usuarios, roles y permisos en PostgreSQL. Expone endpoints para registro, inicio de sesión, cambio de contraseña y generación de sesión, y se entrega con configuración estandarizada (application.properties) y orquestación local vía Docker Compose (servicios db y redis) para facilitar integración, mantenimiento y escalabilidad.
+#Objetivo
+##Objetivo General
+Garantizar el acceso seguro de los usuarios a la plataforma mediante un microservicio de autenticación que emita y valide JWT, gestione sesiones en Redis y administre roles y permisos, siguiendo una arquitectura en capas que permita escalabilidad, mantenibilidad e integración con otros servicios.
+##Objetivos especificos
+1. Exponer endpoints para *registro de usuarios, **login* y *cambio de contraseña* con manejo adecuado de errores.
+2. *Emitir y validar JWT* y *generar sesiones* (UUID/Redis) para sostener el estado de autenticación entre servicios.
+3. *Persistir usuarios, roles y permisos* utilizando *Spring Data JPA* sobre *PostgreSQL*.
+4. Mantener una *estructura modular y desacoplada* (controllers, services, repositories, interactors, dtos) que facilite pruebas y evolución.
+5. Proveer *configuración estandarizada* y *recursos de despliegue local* (Docker Compose para db y redis) que permitan un arranque rápido del entorno.
 # 📄 Informe: Documentación de el proyecto auth-microservice backend
 
 Este documento centralizado contiene toda la documentación estandarizada del proyecto con el fin de revisar, corregir y unificar el formato, estructura y nomenclatura de todos los archivos de documentación, garantizando coherencia y cumplimiento con los estándares del equipo.
