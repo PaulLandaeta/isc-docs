@@ -1,0 +1,317 @@
+# 📄 Informe: Documentación de el proyecto auth-microservice backend
+
+Este documento centralizado contiene toda la documentación estandarizada del proyecto con el fin de revisar, corregir y unificar el formato, estructura y nomenclatura de todos los archivos de documentación, garantizando coherencia y cumplimiento con los estándares del equipo.
+
+## 📝 Descripción de la Tarea y Objetivo del Proyecto
+
+Este microservicio de autenticación tiene como objetivo gestionar el acceso seguro de los usuarios a la plataforma, implementando procesos de login y validación de credenciales mediante JWT. La arquitectura en capas permite separar responsabilidades, facilitando la escalabilidad, el mantenimiento y la integración con otros servicios. Esta estructura lógica responde a la necesidad de contar con un sistema robusto y flexible para la gestión de autenticación, asegurando la protección de los datos y la correcta autorización en las operaciones del sistema.
+
+## 🧱 Explicación de las Capas en la Arquitectura del Proyecto
+
+La arquitectura del microservicio de autenticación sigue una estructura modular y desacoplada, facilitando la escalabilidad y el mantenimiento.
+
+### 📂 Estructura de Lógica
+
+```
+└── 📁AuthMicroservice Backend
+    └── 📁.mvn
+        └── 📁wrapper
+            ├── maven-wrapper.properties
+    └── 📁src
+        └── 📁main
+            └── 📁java
+                └── 📁upb
+                    └── 📁edu
+                        └── 📁AuthMicroservice
+                            └── 📁config
+                                ├── RedisConfig.java
+                            └── 📁controllers
+                                ├── PermissionController.java
+                                ├── RedisController.java
+                                ├── RoleController.java
+                                ├── SessionController.java
+                                ├── UserController.java
+                            └── 📁dtos
+                                ├── GenerateSessionRequest.java
+                            └── 📁interactors
+                                ├── PermissionInteractor.java
+                                ├── RedisInteractor.java
+                                ├── RoleInteractor.java
+                                ├── SessionInteractor.java
+                                ├── UserInteractor.java
+                            └── 📁models
+                                ├── ChangePasswordRequest.java
+                                ├── LoginRequest.java
+                                ├── Permission.java
+                                ├── Response.java
+                                ├── Role.java
+                                ├── Session.java
+                                ├── User.java
+                            └── 📁repositories
+                                ├── PermissionRepository.java
+                                ├── RedisRepository.java
+                                ├── RoleRepository.java
+                                ├── SessionRepository.java
+                                ├── UserRepository.java
+                            └── 📁routes
+                                ├── PermissionRoutes.java
+                                ├── RedisRoutes.java
+                                ├── RoleRoutes.java
+                                ├── Routes.java
+                            └── 📁services
+                                ├── PermissionService.java
+                                ├── RedisService.java
+                                ├── RoleService.java
+                                ├── SessionService.java
+                                ├── UserService.java
+                            ├── AuthMicroserviceBackendApplication.java
+            └── 📁resources
+                ├── application.properties
+        └── 📁test
+            └── 📁java
+                └── 📁upb
+                    └── 📁edu
+                        └── 📁AuthMicroservice
+                            ├── AuthMicroserviceBackendApplicationTests.java
+    ├── .gitattributes
+    ├── .gitignore
+    ├── docker-compose.yml
+    ├── mvnw
+    ├── mvnw.cmd
+    └── pom.xml
+```
+### 📁 .mvn / wrapper / maven-wrapper.properties
+
+El código en este archivo para la configuración para Apache Maven Wrapper.
+
+### 📁 config 
+
+* Esta clase Java configura una conexión Redis y establece un RedisTemplate con serializadores String.
+
+### 📁 controllers/ – Controladores
+
+Ejemplo de controlador adaptado UserController.java:
+
+ * La clase `UserController` en una aplicación Java Spring gestiona el registro de usuarios, los cambios de contraseña
+ y las operaciones de inicio de sesión con el manejo de errores adecuado.
+
+```java
+public ServerResponse registerUser(ServerRequest request) {
+        try {
+            User user = request.body(User.class);
+            userService.createUser(user);
+            return ServerResponse
+                    .status(201)
+                    .body(new Response("201", "Ok"));
+        } catch (IOException | ServletException e) {
+            log.error("Error binding request for registerUser", e);
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Register failed",
+                    e
+            );
+        }
+    }
+```
+
+### 📁 dtos
+En este proyecto el dto sirve para transferir información de manera segura y estructurada entre la capa del servicio y la capa de presentación (el cliente)
+
+Ejemplo de dto GenerateSessionRequest.java:
+
+ * La clase `GenerateSessionRequest` del paquete `upb.edu.AuthMicroservice.dtos` contiene un único campo `user_id` con métodos getter y setter.
+
+```java
+package upb.edu.AuthMicroservice.dtos;
+
+public class GenerateSessionRequest {
+    private int user_id;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+}
+
+```
+### 📁 interactors
+Ejemplo de PermisionInteractor.java:
+
+ * La clase `PermissionInteractor` del paquete AuthMicroservice interactúa con el `PermissionService` para crear y recuperar permisos.
+
+```java
+public Permission createPermission(Permission permission) {
+        return permissionService.createPermission(permission);
+    }
+
+public List<Permission> getAllPermissions() {
+    return permissionService.getAllPermissions();
+}
+```
+
+
+
+### 📁 models/ – Modelos
+
+Ejemplo de ChangePasswordRequest.java:
+
+* La clase `ChangePasswordRequest` representa una solicitud para cambiar la contraseña de un usuario con campos para
+correo electrónico, contraseña antigua y contraseña nueva.
+
+```java
+package upb.edu.AuthMicroservice.models;
+
+public class ChangePasswordRequest {
+    private String email;
+    private String oldPassword;
+    private String newPassword;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+}
+
+```
+
+### 📁 repositories
+
+Ejemplo de repositorio UserRepository.java:
+
+* Este fragmento de código Java define una interfaz de repositorio `UserRepository` que extiende `JpaRepository` de Spring Data JPA. El repositorio se utiliza para interactuar con la base de datos para la entidad `User`.
+
+```java
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByEmail(String email);
+}
+```
+
+### 📁 routes/ – Rutas
+
+Ejemplo de Routes.java:
+
+Este método `RouterFunction` de la clase `Routes` define la configuración de enrutamiento de la aplicación utilizando el modelo de programación funcional de Spring Web. A continuación se detalla lo que hace:
+
+
+```java
+public RouterFunction<ServerResponse> routerFunction(RoleController roleController) {
+        return route()
+            .nest(path("/api"), builder -> builder
+                .POST("/register-user", userController::registerUser)
+                .POST("/login", userController::login)
+                .PUT("/change-password", userController::changePassword)
+                .POST("/generate-session", sessionController::generateSession)
+                .add(RoleRoutes.roleRoutes(roleController)))
+            .build();
+    }
+```
+
+### 📁 services/ – Servicios
+
+Ejemplo de service UserService.java:
+
+* La clase UserService en AuthMicroservice gestiona operaciones relacionadas con los usuarios, como la creación de usuarios,
+el inicio de sesión y el cambio de contraseña.
+
+```java
+public User createUser(User user) {
+        return userInteractor.createUser(user);
+}
+
+public ResponseEntity<Object> login(String email, String password) {
+        Optional<User> userOpt = userInteractor.findByEmail(email);
+
+        if (userOpt.isEmpty() || !userOpt.get().getPassword().equals(password)) {
+            return ResponseEntity
+                    .status(401)
+                    .body(Map.of("code", 401, "msg", "Unauthorized"));
+        }
+
+        int userId = userOpt.get().getId();
+        UUID sessionId = sessionInteractor.execute(userId);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("session", sessionId.toString());
+        
+        return ResponseEntity.ok(Map.of("code", 200, "msg", "Ok", "data", data));
+}
+
+public ResponseEntity<Object> changePassword(String email, String oldPassword, String newPassword) {
+        boolean success = userInteractor.changePassword(email, oldPassword, newPassword);
+        
+        if (success) {
+            return ResponseEntity.ok(Map.of("code", 200, "msg", "Ok"));
+        } else {
+            return ResponseEntity
+                    .status(401)
+                    .body(Map.of("code", 401, "msg", "Datos incorrectos"));
+        }
+}
+```
+
+## 📁 resources
+
+Explicación del archivo aplication.properties:
+
+Las propiedades de configuración proporcionadas en el fragmento de código se utilizan para configurar una aplicación Spring Boot. A continuación se detalla la función de cada propiedad:
+
+```properties
+spring.application.name=Auth Microservice Backend
+
+spring.datasource.url=jdbc:postgresql://localhost:5466/postgres
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
+
+debug=true
+logging.level.org.springframework.boot.autoconfigure=ERROR
+logging.level.upb.edu.AuthMicroservice=DEBUG
+logging.level.org.springframework.web=DEBUG
+```
+
+## 🐳 docker-compose.yml
+
+Este es un archivo de configuración de Docker Compose. Define dos servicios, `db` y `redis`, cada uno de los cuales se ejecuta en un contenedor independiente.
+
+```docker
+version: '3.9'
+
+services: 
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5466:5432"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+```
