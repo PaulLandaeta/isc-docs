@@ -103,19 +103,6 @@ Agregar al PATH:
 
 ### 3.1 Configuración Previa 
 
-#### Configuración de Variables de Entorno
-1. Abrir el Panel de Control de Windows.
-2. Seleccionar "Cuentas de usuario" y luego nuevamente "Cuentas de usuario".
-3. Hacer click en "Cambiar mis variables de entorno".
-4. Crear una nueva variable de usuario llamada `ANDROID_HOME` apuntando al directorio del SDK de Android (Ejemplo: `C:\Users\Usuario\AppData\Local\Android\Sdk`).
-5. Agregar las rutas al PATH del sistema (Ejemplo: `C:\Users\Usuario\AppData\Local\Android\Sdk\platform-tools`).
-6. Repetir el procedimiento para la variable `JAVA_HOME`, utilizando Java JDK versión 21.
-
-#### Configuración del JDK en Android Studio
-1. Abrir configuración de Android Studio: Build > Gradle.
-2. Asegurarse de que el Gradle JDK apunte correctamente a la ruta de `JAVA_HOME`.
-3. Si hay problemas, descargar la versión JDK 21 desde [Oracle](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html).
-
 #### Creación del Emulador
 1. En Android Studio, abrir AVD Manager y seleccionar "Create a new virtual device".
 2. Elegir el modelo Pixel 9 Pro XL.
